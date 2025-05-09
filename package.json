@@ -1,0 +1,51 @@
+{
+  "name": "first-extension",
+  "displayName": "First Extension",
+  "description": "A simple VS Code extension with commit helper and settings sidebar",
+  "version": "0.0.1",
+  "publisher": "your-name-here",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:first.askCommit",
+    "onView:firstSettingsView"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "first.askCommit",
+        "title": "Ask to Commit"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "firstSettings",
+          "title": "F Settings",
+          "icon": "media/settings.svg"
+        }
+      ]
+    },
+    "views": {
+      "firstSettings": [
+        {
+          "type": "webview",
+          "id": "firstSettingsView",
+          "name": "Settings Panel"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npx vsce package",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "vsce": "^2.20.0"
+  }
+}
